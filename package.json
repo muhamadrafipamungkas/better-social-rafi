@@ -4,5 +4,8 @@
   "description": "Test project for Backend position at Betterhelp ",
   "main": "index.js",
   "author": "Muhamad Rafi Pamungkas",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "fastify": "4.21.0"
+  }
 }
