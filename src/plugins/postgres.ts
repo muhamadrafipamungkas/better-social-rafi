@@ -12,8 +12,6 @@ const postgrePlugin: FastifyPluginAsync = fp(async (server, options) => {
         database: config.database.name
     })
     await client.connect() 
-  
-    // Make Prisma Client available through the fastify server instance: server.prisma
     server.decorate('postgre', client)
 })
 

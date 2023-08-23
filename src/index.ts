@@ -4,10 +4,13 @@ import { Server, IncomingMessage, ServerResponse } from 'http'
 import postgrePlugin from './plugins/postgres'
 import config from 'configs/config'
 import logger from 'utils/logger'
+import userRoutes from 'users/user.route'
 
 const server: FastifyInstance = Fastify({})
 
 server.register(postgrePlugin)
+server.register(userRoutes, { prefix: '/v1/users' })
+
 
 const opts: RouteShorthandOptions = {
   schema: {
