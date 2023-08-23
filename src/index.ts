@@ -1,7 +1,13 @@
 import Fastify, { FastifyInstance, RouteShorthandOptions } from 'fastify'
 import { Server, IncomingMessage, ServerResponse } from 'http'
 
+import postgrePlugin from './plugins/postgre'
+import config from 'configs/config'
+import logger from 'utils/logger'
+
 const server: FastifyInstance = Fastify({})
+
+server.register(postgrePlugin)
 
 const opts: RouteShorthandOptions = {
   schema: {
@@ -24,13 +30,14 @@ server.get('/ping', opts, async (request, reply) => {
 
 const start = async () => {
   try {
-    await server.listen({ port: 3000 })
+    const port = typeof config.port === 'string' ? parseInt(config.port) : config.port
+    await server.listen({ port })
 
     const address = server.server.address()
-    const port = typeof address === 'string' ? address : address?.port
+    logger.info(`✨ Listening port ${typeof address === 'string' ? address : address?.port}`)
 
   } catch (err) {
-    server.log.error(err)
+    logger.error(err)
     process.exit(1)
   }
 }
