@@ -5,6 +5,11 @@
   "main": "index.js",
   "author": "Muhamad Rafi Pamungkas",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node build/index.js",
+    "dev": "ts-node src/index.ts"
+  },
   "dependencies": {
     "fastify": "4.21.0"
   },
