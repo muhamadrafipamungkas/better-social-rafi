@@ -1,0 +1,8 @@
+{
+  "name": "bettersocial-test-rafi",
+  "version": "1.0.0",
+  "description": "Test project for Backend position at Betterhelp ",
+  "main": "index.js",
+  "author": "Muhamad Rafi Pamungkas",
+  "license": "MIT"
+}
