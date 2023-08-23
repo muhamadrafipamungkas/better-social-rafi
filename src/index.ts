@@ -1,7 +1,7 @@
 import Fastify, { FastifyInstance, RouteShorthandOptions } from 'fastify'
 import { Server, IncomingMessage, ServerResponse } from 'http'
 
-import postgrePlugin from './plugins/postgre'
+import postgrePlugin from './plugins/postgres'
 import config from 'configs/config'
 import logger from 'utils/logger'
 
